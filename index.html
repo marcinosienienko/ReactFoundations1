@@ -1,4 +1,8 @@
 <html>
+  <head>
+    <meta charset="UTF-8">
+    <title>React Example</title>
+  </head>
   <body>
     <div id="app"></div>
     <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
@@ -6,21 +10,24 @@
 
     <!-- Babel Script -->
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-    <script type="text/jsx">
+    <script type="text/babel">
+        const app = document.getElementById("app");
 
-        /*
-        const app = document.getElementById('app');
-        const header = document.createElement('h1');
-        const text = 'Develop. Preview. Ship.';
-        const headerContent = document.createTextNode(text);
-        header.appendChild(headerContent);
-        app.appendChild(header);
-        */
+        function Header(){
+          return<h1>Hello, React!</h1>;
+        }
 
-        const app = document.getElementById('app');
+        function HomePage(){
+          return(
+            <div>
+              {/*Nesting the header component*/}
+              <Header />
+            </div>
+          );
+        }
+
         const root = ReactDOM.createRoot(app);
-        root.render(<h1>Hello, React!</h1>);
-        
+        root.render(<HomePage />);
     </script>
   </body>
 </html>
